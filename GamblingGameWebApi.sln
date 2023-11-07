@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamblingGameWebApi", "GamblingGameWebApi\GamblingGameWebApi.csproj", "{82CBB05A-C07C-4AAF-974B-3631F2E28C0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{64B19DA6-350C-4BFC-B7C0-1287FFE58719}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{65A3F2D2-0373-4B69-A692-0F5FE313D0FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{923664F4-0424-4745-9E7C-0B44AE9F203D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamblingGameWebApi.Entities.Domains", "Entities\GamblingGameWebApi.Entities.Domains.csproj", "{D7AD1722-E27D-401D-BF3A-DB228CF5D35D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamblingGameWebApi.Applications", "Services\GamblingGameWebApi.Applications.csproj", "{256AF334-F01B-4AE9-9803-D95AF1B0E1BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamblingGameWebApi.DataAccess", "GamblingGameWebApi.DataAccess\GamblingGameWebApi.DataAccess.csproj", "{2C81709C-817E-49AD-9473-916657309962}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamblingGameWebApi.DataAccess.IoC", "GamblingGameWebApi.DataAccess.IoC\GamblingGameWebApi.DataAccess.IoC.csproj", "{506391E0-CF14-499C-A6C0-C01306D406CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{1383815C-F058-433A-9D8E-D46FAEA9AB90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82CBB05A-C07C-4AAF-974B-3631F2E28C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82CBB05A-C07C-4AAF-974B-3631F2E28C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82CBB05A-C07C-4AAF-974B-3631F2E28C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82CBB05A-C07C-4AAF-974B-3631F2E28C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7AD1722-E27D-401D-BF3A-DB228CF5D35D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7AD1722-E27D-401D-BF3A-DB228CF5D35D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7AD1722-E27D-401D-BF3A-DB228CF5D35D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7AD1722-E27D-401D-BF3A-DB228CF5D35D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256AF334-F01B-4AE9-9803-D95AF1B0E1BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256AF334-F01B-4AE9-9803-D95AF1B0E1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256AF334-F01B-4AE9-9803-D95AF1B0E1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256AF334-F01B-4AE9-9803-D95AF1B0E1BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C81709C-817E-49AD-9473-916657309962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C81709C-817E-49AD-9473-916657309962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C81709C-817E-49AD-9473-916657309962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C81709C-817E-49AD-9473-916657309962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{506391E0-CF14-499C-A6C0-C01306D406CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{506391E0-CF14-499C-A6C0-C01306D406CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{506391E0-CF14-499C-A6C0-C01306D406CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{506391E0-CF14-499C-A6C0-C01306D406CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1383815C-F058-433A-9D8E-D46FAEA9AB90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1383815C-F058-433A-9D8E-D46FAEA9AB90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1383815C-F058-433A-9D8E-D46FAEA9AB90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1383815C-F058-433A-9D8E-D46FAEA9AB90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{82CBB05A-C07C-4AAF-974B-3631F2E28C0B} = {923664F4-0424-4745-9E7C-0B44AE9F203D}
+		{D7AD1722-E27D-401D-BF3A-DB228CF5D35D} = {64B19DA6-350C-4BFC-B7C0-1287FFE58719}
+		{256AF334-F01B-4AE9-9803-D95AF1B0E1BC} = {64B19DA6-350C-4BFC-B7C0-1287FFE58719}
+		{2C81709C-817E-49AD-9473-916657309962} = {65A3F2D2-0373-4B69-A692-0F5FE313D0FA}
+		{506391E0-CF14-499C-A6C0-C01306D406CA} = {65A3F2D2-0373-4B69-A692-0F5FE313D0FA}
+		{1383815C-F058-433A-9D8E-D46FAEA9AB90} = {64B19DA6-350C-4BFC-B7C0-1287FFE58719}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7A1D123-4CF5-454C-A027-2EAFDA353910}
+	EndGlobalSection
+EndGlobal
