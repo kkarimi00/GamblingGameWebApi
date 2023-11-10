@@ -6,5 +6,7 @@ public class GambleRequestDto
 {
     public int InvestPoint { get; set; }
     public int SelectedNumber { get; set; }
+    public ResultState ResultState { get; set; }
+    public int ResultPoints { get; set; }
     public User User { get; set; }
 }

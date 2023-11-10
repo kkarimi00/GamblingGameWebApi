@@ -5,5 +5,5 @@ namespace GamblingGameWebApi.Applications.GambleRequests.Commands;
 
 public class SendRequestCommand : ICommand
 {
-    public GambleRequestDto gambleRequestDto; 
+    public GambleRequest gambleRequest; 
 }

@@ -1,7 +1,7 @@
 ﻿namespace Infrastructure.Commands;
 
-public interface ICommandHandler<TCommand>
+public interface ICommandHandler<TCommand,TResult>
     where TCommand : ICommand
 {
-    Task HandleAsync(TCommand command);
+    Task<TResult> HandleAsync(TCommand command);
 }

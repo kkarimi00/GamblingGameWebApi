@@ -1,6 +1,6 @@
-﻿namespace GamblingGameWebApi.Entities.Domains.GambleRequests.Dtos;
+﻿namespace GamblingGameWebApi.Entities.Domains.GambleRequests;
 
-public class GambleResponseDto
+public class GambleResponse
 {
     public ResultState ResultState { get; set; }
     public int ResultPoints { get; set; }
