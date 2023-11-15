@@ -25,16 +25,27 @@ public class SendRequestCommandHandler : ICommandHandler<SendRequestCommand, Gam
 
         GambleResponse gambleResponse = CalculateResponse(command.gambleRequest);
 
-        command.gambleRequest.ResultState = gambleResponse.ResultState;
-        command.gambleRequest.ResultPoints = gambleResponse.ResultPoints;
-        await _gambleRequestsRepository.Add(command.gambleRequest);
+        await AddGambleRequestAsync(command, gambleResponse);
 
-        command.gambleRequest.User.CurrentPoint = (command.gambleRequest.User.InitialPoint + gambleResponse.ResultPoints);
+        await UpdateUserAsync(command, gambleResponse);
+
         gambleResponse.AccountPoint = command.gambleRequest.User.CurrentPoint;
-        _userRepository.Update(command.gambleRequest.User);
 
         return gambleResponse;
 
+    }
+
+    private async Task UpdateUserAsync(SendRequestCommand command, GambleResponse gambleResponse)
+    {
+        command.gambleRequest.User.CurrentPoint = (command.gambleRequest.User.InitialPoint + gambleResponse.ResultPoints);
+        await _userRepository.Update(command.gambleRequest.User);
+    }
+
+    private async Task AddGambleRequestAsync(SendRequestCommand command, GambleResponse gambleResponse)
+    {
+        command.gambleRequest.ResultState = gambleResponse.ResultState;
+        command.gambleRequest.ResultPoints = gambleResponse.ResultPoints;
+        await _gambleRequestsRepository.Add(command.gambleRequest);
     }
 
     public GambleResponse CalculateResponse(GambleRequest gambleRequest)

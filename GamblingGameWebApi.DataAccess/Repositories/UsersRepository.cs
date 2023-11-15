@@ -14,14 +14,14 @@ public class UsersRepository : IUserRepository
     public async Task<User> Add(User user)
     {
         _dbContext.Users.Add(user);
-        await _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
         return user;
     }
 
     public async Task Delete(User user)
     {
         _dbContext.Users.Remove(user);
-        await _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
     }
 
     public IEnumerable<User> Get(int id)
@@ -34,9 +34,9 @@ public class UsersRepository : IUserRepository
         return _dbContext.Users.ToList();
     }
 
-    public void Update(User user)
+    public async Task Update(User user)
     {
         _dbContext.Users.Update(user);
-        _dbContext.SaveChanges();
+       await _dbContext.SaveChangesAsync();
     }
 }
