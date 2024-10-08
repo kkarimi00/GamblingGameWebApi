@@ -19,7 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamblingGameWebApi.DataAcce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamblingGameWebApi.DataAccess.IoC", "GamblingGameWebApi.DataAccess.IoC\GamblingGameWebApi.DataAccess.IoC.csproj", "{506391E0-CF14-499C-A6C0-C01306D406CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{1383815C-F058-433A-9D8E-D46FAEA9AB90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{1383815C-F058-433A-9D8E-D46FAEA9AB90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{51E8319A-AF18-48FB-86DA-0292DDEC3D50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamblingGameWebApi.Applications.UnitTests", "GamblingGameWebApi.Applications.UnitTests\GamblingGameWebApi.Applications.UnitTests.csproj", "{40C13D91-6173-411B-8ED6-261F686C097B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,10 @@ Global
 		{1383815C-F058-433A-9D8E-D46FAEA9AB90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1383815C-F058-433A-9D8E-D46FAEA9AB90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1383815C-F058-433A-9D8E-D46FAEA9AB90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C13D91-6173-411B-8ED6-261F686C097B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C13D91-6173-411B-8ED6-261F686C097B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C13D91-6173-411B-8ED6-261F686C097B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C13D91-6173-411B-8ED6-261F686C097B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +70,8 @@ Global
 		{2C81709C-817E-49AD-9473-916657309962} = {65A3F2D2-0373-4B69-A692-0F5FE313D0FA}
 		{506391E0-CF14-499C-A6C0-C01306D406CA} = {65A3F2D2-0373-4B69-A692-0F5FE313D0FA}
 		{1383815C-F058-433A-9D8E-D46FAEA9AB90} = {64B19DA6-350C-4BFC-B7C0-1287FFE58719}
+		{51E8319A-AF18-48FB-86DA-0292DDEC3D50} = {64B19DA6-350C-4BFC-B7C0-1287FFE58719}
+		{40C13D91-6173-411B-8ED6-261F686C097B} = {51E8319A-AF18-48FB-86DA-0292DDEC3D50}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7A1D123-4CF5-454C-A027-2EAFDA353910}

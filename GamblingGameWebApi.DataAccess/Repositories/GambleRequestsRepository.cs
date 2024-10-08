@@ -15,19 +15,19 @@ public class GambleRequestsRepository : IGambleRequestsRepository
     public async Task<GambleRequest> Add(GambleRequest gambleRequest)
     {
         _dbContext.GambleRequests.Add(gambleRequest);
-        await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChanges();
         return gambleRequest;
     }
 
     public async Task Delete(GambleRequest gambleRequest)
     {
         _dbContext.GambleRequests.Remove(gambleRequest);
-        await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChanges();
     }
 
     public IEnumerable<GambleRequest> Get(int id)
     {
-        return _dbContext.GambleRequests.Where(c => c.Id == id);
+        return new List<GambleRequest>();// _dbContext.GambleRequests.Where(c => c.Id == Guid.Parse(id));
     }
 
     public IEnumerable<GambleRequest> GetAll()
@@ -38,6 +38,6 @@ public class GambleRequestsRepository : IGambleRequestsRepository
     public async void Update(GambleRequest gambleRequest)
     {
         _dbContext.GambleRequests.Update(gambleRequest);
-        await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChanges();
     }
 }

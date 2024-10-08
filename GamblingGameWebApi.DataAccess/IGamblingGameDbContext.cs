@@ -8,5 +8,5 @@ public interface IGamblingGameDbContext
 {
     DbSet<User> Users { get; set; }
     DbSet<GambleRequest> GambleRequests { get; set; }
-    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+    Task<int> SaveChanges(CancellationToken cancellationToken = default);
 }

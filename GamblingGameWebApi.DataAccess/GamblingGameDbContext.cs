@@ -2,7 +2,6 @@
 using GamblingGameWebApi.Entities.Domains.GambleRequests;
 using GamblingGameWebApi.Entities.Domains.Users;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 
 namespace GamblingGameWebApi.DataAccess;
 
@@ -17,11 +16,14 @@ public class GamblingGameDbContext : DbContext, IGamblingGameDbContext
     {
         modelBuilder.ApplyConfiguration(new GambleRequestDbMaps());
         modelBuilder.ApplyConfiguration(new UserDbMaps());
+
+        modelBuilder.Entity<User>().HasData(
+        new User { Id=1, Name = "Saam", InitialPoint = 12, CurrentPoint = 18 },
+        new User { Id = 2, Name = "Mouse", InitialPoint = 9, CurrentPoint = 0 });
     }
 
-    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    public async Task<int> SaveChanges(CancellationToken cancellationToken = default)
     {
-        int result = await base.SaveChangesAsync(cancellationToken);
-        return result;
+        return await base.SaveChangesAsync(cancellationToken);
     }
 }

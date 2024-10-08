@@ -1,13 +1,13 @@
 ﻿using GamblingGameWebApi.Entities.Domains.Users;
+using Infrastructure.Entities;
 
 namespace GamblingGameWebApi.Entities.Domains.GambleRequests;
 
-public class GambleRequest
+public class GambleRequest : Entity
 {
-    public int Id { get; set; }
     public int InvestPoint { get; set; }
     public int SelectedNumber { get; set; }
     public ResultState ResultState { get; set; }
     public int ResultPoints { get; set; }
-    public User User { get; set; }
+    public int UserId { get; set; }
 }

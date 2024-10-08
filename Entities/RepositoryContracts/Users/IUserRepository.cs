@@ -8,5 +8,5 @@ public interface IUserRepository
     Task Update(User user);
     Task Delete(User user);
     IEnumerable<User> GetAll();
-    IEnumerable<User> Get(int id);
+    Task<User> GetById(int id);
 }

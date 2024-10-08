@@ -1,8 +1,10 @@
 ﻿using GamblingGameWebApi.Applications.GambleRequests.Commands;
+using GamblingGameWebApi.Applications.Users.Queries;
 using GamblingGameWebApi.Entities.Domains.GambleRequests;
 using GamblingGameWebApi.Entities.Domains.GambleRequests.Dtos;
 using GamblingGameWebApi.Entities.Domains.RepositoryContracts.GambleRequests;
 using GamblingGameWebApi.Entities.Domains.RepositoryContracts.Users;
+using GamblingGameWebApi.Entities.Domains.Users;
 using Infrastructure.Commands;
 
 namespace GamblingGameWebApi.Applications.GambleRequests.Handlers;
@@ -11,6 +13,9 @@ public class SendRequestCommandHandler : ICommandHandler<SendRequestCommand, Gam
 {
     private readonly IGambleRequestsRepository _gambleRequestsRepository;
     private readonly IUserRepository _userRepository;
+
+    private SendRequestCommand _command;
+    private User _user;
 
     public SendRequestCommandHandler
         (IGambleRequestsRepository gambleRequestsRepository,
@@ -22,30 +27,42 @@ public class SendRequestCommandHandler : ICommandHandler<SendRequestCommand, Gam
 
     public async Task<GambleResponse> HandleAsync(SendRequestCommand command)
     {
+        _command = command;
+        _user = await GetUserAsync();
+        GambleResponse gambleResponse = CalculateResponse(_command.gambleRequest);
 
-        GambleResponse gambleResponse = CalculateResponse(command.gambleRequest);
+        await AddGambleRequestAsync(gambleResponse);
 
-        await AddGambleRequestAsync(command, gambleResponse);
+        await UpdateUserAsync(gambleResponse);
 
-        await UpdateUserAsync(command, gambleResponse);
-
-        gambleResponse.AccountPoint = command.gambleRequest.User.CurrentPoint;
+        gambleResponse.AccountPoint = _user.CurrentPoint;
 
         return gambleResponse;
 
     }
 
-    private async Task UpdateUserAsync(SendRequestCommand command, GambleResponse gambleResponse)
+    private async Task<User> GetUserAsync()
     {
-        command.gambleRequest.User.CurrentPoint = (command.gambleRequest.User.InitialPoint + gambleResponse.ResultPoints);
-        await _userRepository.Update(command.gambleRequest.User);
+        return await _userRepository.GetById(_command.gambleRequest.UserId);
     }
 
-    private async Task AddGambleRequestAsync(SendRequestCommand command, GambleResponse gambleResponse)
+    private async Task UpdateUserAsync(GambleResponse gambleResponse)
     {
-        command.gambleRequest.ResultState = gambleResponse.ResultState;
-        command.gambleRequest.ResultPoints = gambleResponse.ResultPoints;
-        await _gambleRequestsRepository.Add(command.gambleRequest);
+        _user.CurrentPoint = (_user.InitialPoint + gambleResponse.ResultPoints);
+
+        await _userRepository.Update(_user);
+    }
+
+    private async Task AddGambleRequestAsync(GambleResponse gambleResponse)
+    {
+        GambleRequest gambleRequest = new()
+        {
+            ResultPoints = gambleResponse.ResultPoints,
+            ResultState = gambleResponse.ResultState,
+            UserId = _user.Id
+        };
+
+        await _gambleRequestsRepository.Add(gambleRequest);
     }
 
     public GambleResponse CalculateResponse(GambleRequest gambleRequest)

@@ -11,6 +11,6 @@ public class UserDbMaps : IEntityTypeConfiguration<User>
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Name).IsRequired().HasMaxLength(150);
         builder.HasMany(x => x.Requests)
-            .WithOne(x => x.User);
+            .WithOne();
     }
 }

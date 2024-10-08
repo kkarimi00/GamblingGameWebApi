@@ -14,19 +14,19 @@ public class UsersRepository : IUserRepository
     public async Task<User> Add(User user)
     {
         _dbContext.Users.Add(user);
-        await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChanges();
         return user;
     }
 
     public async Task Delete(User user)
     {
         _dbContext.Users.Remove(user);
-        await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChanges();
     }
 
-    public IEnumerable<User> Get(int id)
+    public async Task<User> GetById(int id)
     {
-        return _dbContext.Users.Where(c => c.Id == id);
+        return await Task.FromResult(_dbContext.Users.FirstOrDefault(c => c.Id == id));
     }
 
     public IEnumerable<User> GetAll()
@@ -37,6 +37,6 @@ public class UsersRepository : IUserRepository
     public async Task Update(User user)
     {
         _dbContext.Users.Update(user);
-       await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChanges();
     }
 }
